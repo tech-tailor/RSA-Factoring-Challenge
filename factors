@@ -2,27 +2,29 @@
 from sys import argv
 
 
-def factorize(num):
-    
+def factorize(value):
     i = 2
 
-    if num < 2:
+    if value < 2:
         return
-    
-    while (num % i):
+    print()
+    print(value, "<- value-before")
+    while value % i:
         i += 1
-    print("{:.0f}={:.0f}*{:.0f}".format(num, num / i, i))
+    print("{:.0f}={:.0f}*{:.0f}".format(value, value / i, i))
+    print(value, "<- value-after")
+    print()
 
 if len(argv) != 2:
-    exit(1)
+    exit()
 
 try:
     with open(argv[1]) as file:
         line = file.readline()
 
         while line != "":
-            num = int(line.split('\n')[0])
-            factorize(num)
+            value = int(line.split('\n')[0])
+            factorize(value)
             line = file.readline()
 except:
     pass
