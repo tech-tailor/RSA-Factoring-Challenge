@@ -1,0 +1,29 @@
+#!/usr/bin/python3
+
+import sys
+
+
+def factorize():
+   
+    try:
+        file = sys.argv[1]
+        with open(file) as file:
+            for line_number in file:
+                line_number = int(line_number)
+                if line_number % 2 == 0:
+                        print("{}={}*{}".format(line_number, line_number // 2, 2))
+                        continue
+                i = 3
+                while i < line_number // 2:
+                    if line_number % i == 0:
+                        print("{}={}*{}".format(line_number, line_number // i, i))
+                        break
+                    i = i + 2
+                if i == (line_number // 2) + 1:
+                    print("{}={}*{}".format(line_number, line_number, 1))
+    except Exception as e:
+        print('error: {e}')
+        pass
+
+
+factorize()
